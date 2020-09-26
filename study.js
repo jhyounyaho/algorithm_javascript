@@ -229,3 +229,34 @@ console.log(filter_result);
 const find_result = words.find((word) => word.length > 6);
 console.log(find_result);
 // expected output: "exuberant"
+
+/*
+  자연수 > 배열 변환 방법 
+  reverse() 배열 순서 뒤집기 
+  Number() 문자열 숫자 변경 
+*/
+function solution(n) {
+  // n 이 자연수일때 배열로 변환하는 법
+  let n_arr = [...(n + "")];
+  // reverse() 배열 순서 뒤집기
+  n_arr = n_arr.reverse();
+  for (let i in n_arr) {
+    // Number() 문자열 숫자 변경
+    n_arr[i] = Number(n_arr[i]);
+  }
+  return n_arr;
+}
+console.log(solution(12345));
+
+/*
+  Math.sqrt(대상숫자)  제곱근 구하는 함수 
+  Math.pow(대상숫자, 거듭제곱 횟수) 제곱 구하는 함수
+  Number.isInteger 정수 만들어줌 
+*/
+function solution(n) {
+  let chk_num = Math.sqrt(n);
+
+  // 자연수 체크
+  //return chk_num % 1 === 0 ? Math.pow(chk_num += 1, 2) : -1;
+  return Number.isInteger(chk_num) ? Math.pow(chk_num + 1, 2) : -1;
+}
