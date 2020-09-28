@@ -24,3 +24,12 @@ function solution(s) {
 
 console.log(solution("a234")); // false
 console.log(solution("1234")); // true
+
+/*
+  다른 문제풀이 
+*/
+function alpha_string46(s) {
+  // 정규식 사용
+  var regex = /^\d{6}$|^\d{4}$/;
+  return regex.test(s);
+}

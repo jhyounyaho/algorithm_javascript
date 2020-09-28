@@ -20,6 +20,7 @@ function solution(arr) {
   let result = [];
 
   for (let i = 0; i < arr.length; i++) {
+    // 앞 뒤로 비교해서 다를 경우에만 넣어줌
     if (arr[i] !== arr[i + 1]) {
       result.push(arr[i]);
     }
@@ -30,3 +31,30 @@ function solution(arr) {
 
 solution([1, 1, 3, 3, 0, 1, 1]); // [1, 3, 0, 1]
 solution([4, 4, 4, 3, 3]); // [4, 3]
+
+/*
+  다른 풀이 
+*/
+function solution(arr) {
+  let answer = [];
+  // 첫번째를 now로 설정해서 무조건 넣어줌
+  let now = arr[0];
+  answer.push(now);
+
+  for (var i = 1; i < arr.length; i++) {
+    if (now !== arr[i]) {
+      // now랑 비교해서 다를 경우에만 넣어줌
+      now = arr[i];
+      answer.push(now);
+    }
+  }
+  return answer;
+}
+
+/*
+  다른풀이2 
+*/
+function solution(arr) {
+  // 현재값과 다음값이 다를 경우에만 리턴함
+  return arr.filter((val, index) => val != arr[index + 1]);
+}

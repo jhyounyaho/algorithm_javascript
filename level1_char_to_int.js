@@ -12,9 +12,22 @@
   str은 부호(+,-)와 숫자로만 구성되어 있고, 잘못된 값이 입력되는 경우는 없습니다.
 */
 function solution(s) {
+  // return Number(s);
   return parseInt(s);
 }
 
 console.log("result : ", solution("1234"));
 console.log("result : ", solution("-1234"));
 console.log("result : ", solution("1234원"));
+
+/*
+  다른 풀이 
+*/
+// 문자열과 숫자열의 사칙연산은 문자가 숫자로 자동 파싱됨
+function strToInt(str) {
+  return str / 1;
+}
+
+function strToInt(str) {
+  return +str;
+}

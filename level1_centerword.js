@@ -17,7 +17,6 @@
 */
 
 function solution(s) {
-  console.log(s);
   let answer = "";
 
   if (s.length % 2 === 0) {
@@ -33,3 +32,11 @@ function solution(s) {
 // test
 console.log(solution("abcde")); // return "c"
 console.log(solution("qwer")); // return "we"
+
+/*
+  다른 풀이 
+*/
+function solution(s) {
+  const mid = Math.floor(s.length / 2);
+  return s.length % 2 === 1 ? s[mid] : s[mid - 1] + s[mid];
+}

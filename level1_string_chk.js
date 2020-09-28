@@ -32,3 +32,13 @@ function solution(s) {
 
 console.log(solution("pPoooyY")); //true
 console.log(solution("Pyy")); //false
+
+/*
+  다른풀이
+*/
+function numPY(s) {
+  //함수를 완성하세요
+  return (
+    s.toUpperCase().split("P").length === s.toUpperCase().split("Y").length
+  );
+}
