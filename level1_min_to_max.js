@@ -31,3 +31,15 @@ function solution(a, b) {
 solution(3, 5);
 solution(3, 3);
 solution(5, 3);
+
+/*
+  다른 풀이
+*/
+function solution(a, b) {
+  let answer = 0;
+
+  for (let i = Math.min(a, b); i <= Math.max(a, b); i++) {
+    answer += i;
+  }
+  return answer;
+}

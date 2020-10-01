@@ -101,6 +101,11 @@ function solution(strings, n) {
   return strings;
 }
 
+/*
+  sort로 객체 정렬시 Object.values(arr) 
+*/
+let sort_arr = Object.values(list).sort((a, b) => b.plays - a.plays);
+
 // join() : 배열 문자열로 변경
 // map() : 배열 반복문
 let result = answer.map((s) => String(s)).join("");
@@ -198,12 +203,40 @@ result += word[i].toUpperCase();
   map() 
   배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 
   새로운 배열을 반환합니다.
+
+  map.map((요소, 인덱스, 배열) => { return 요소 });
 */
 const int_arr = [1, 2, 3];
 let map_result = int_arr.map((v) => {
   return v + 1;
 });
 console.log(map_result); // [2, 3, 4]
+
+/*
+  hash 사용할때 유용한 reduce 함수 
+  key, value 구조 만들어줌 
+
+  array.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값`)
+*/
+// 해시 사용한 풀이 - 1차원 배열
+function solution(participant, completion) {
+  var newList = completion.reduce((acc, c) => {
+    acc[c] = acc[c] ? acc[c] + 1 : 1;
+    return acc;
+  }, {}); // {} 초깃값
+  // newList = { eden: 1, kiki: 1 }
+}
+
+// 해시 사용한 풀이 - 2차원 배열
+let list = genres.reduce((hash, g, i) => {
+  if (!hash[g]) {
+    hash[g] = { plays: plays[i], music: [] };
+  } else {
+    hash[g].plays += plays[i];
+  }
+  hash[g].music.push([i, plays[i]]);
+  return hash;
+}, {});
 
 /*
   배열의 특정값 찾기 
@@ -229,6 +262,14 @@ console.log(filter_result);
 const find_result = words.find((word) => word.length > 6);
 console.log(find_result);
 // expected output: "exuberant"
+
+return participant.find((c) => {
+  if (newList[c]) {
+    newList[c] -= 1;
+  } else {
+    return true;
+  }
+});
 
 /*
   자연수 > 배열 변환 방법 

@@ -17,3 +17,14 @@ function solution(n) {
 }
 
 console.log(solution(12345));
+
+/*
+  다른 풀이 
+*/
+function solution(n) {
+  return n
+    .toString()
+    .split("")
+    .reverse()
+    .map((o) => (o = parseInt(o)));
+}

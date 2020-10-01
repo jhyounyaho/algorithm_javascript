@@ -47,3 +47,12 @@ function solution(arr, divisor) {
 solution([5, 9, 7, 10], 5); // [5, 10]
 solution([2, 36, 1, 3], 1); // [1, 2, 3, 38]
 solution([3, 2, 6], 10); // [-1]
+
+/*
+  다른 풀이 
+*/
+function solution(arr, divisor) {
+  let result = arr.filter((v) => v % divisior === 0);
+
+  return result.length === 0 ? [-1] : result.sort((a, b) => a - b);
+}
