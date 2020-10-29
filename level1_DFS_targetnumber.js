@@ -63,8 +63,8 @@ function solution(numbers, target) {
       return;
     }
     // 재귀함수
-    dfs(index + 1, sum + numbers[index]);
-    dfs(index + 1, sum - numbers[index]);
+    dfs(index + 1, sum + numbers[index]); // 왼쪽
+    dfs(index + 1, sum - numbers[index]); // 오른쪽
   }
   return answer;
 }
