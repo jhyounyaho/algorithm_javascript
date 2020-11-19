@@ -301,3 +301,10 @@ function solution(n) {
   //return chk_num % 1 === 0 ? Math.pow(chk_num += 1, 2) : -1;
   return Number.isInteger(chk_num) ? Math.pow(chk_num + 1, 2) : -1;
 }
+
+/*
+  Set 객체는 자료형에 관계 없이 
+  원시 값과 객체 참조 모두 '유일한 값'을 저장 할 수 있다.
+*/
+temp = [1, 1, 2, 3, 4, 4, 5]
+const answer = [...new Set(temp)] // [1, 2, 3, 4, 5]
