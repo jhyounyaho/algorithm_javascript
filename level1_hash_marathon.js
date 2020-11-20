@@ -44,16 +44,16 @@ function solution(participant, completion) {
 
 // 해시 사용한 풀이
 function solution(participant, completion) {
-  var newList = completion.reduce((acc, c) => {
-    acc[c] = acc[c] ? acc[c] + 1 : 1; // key : value
-    return acc;
-  }, {}); // 초깃값
+  let newList = completion.reduce((pre, value) => {
+    pre[value] = pre[value] ? pre[value] + 1 : 1; // key : value
+    return pre;
+  }, {}); // {} 초깃값
   // newList = { eden: 1, kiki: 1 }
 
-  return participant.find((c) => {
-    if (newList[c]) {
+  return participant.find((value) => {
+    if (newList[value]) {
       // 요소 있을 경우
-      newList[c] -= 1;
+      newList[value] -= 1;
     } else {
       // 요소 없을 경우 미완주자 임으로 해당 값 리턴
       return true;
