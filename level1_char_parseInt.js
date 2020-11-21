@@ -12,6 +12,15 @@
   return = true 
 */
 
+// 201121 풀이 - 틀렸음
+function solution(s) {
+    if (parseInt(s) == s && (s.length === 4 || s.length === 6)) {
+        return true 
+    } else {
+        return false
+    } 
+}
+
 function solution(s) {
   let result = parseInt(s);
 

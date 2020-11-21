@@ -16,6 +16,13 @@
   return = 'we
 */
 
+// 201121 내가 푼 풀이 
+function solution(s) {
+    return s.length % 2 === 0
+    ? s.substr(Math.ceil(s.length/2-1), 2) // 짝수
+    : s.substr(Math.ceil(s.length/2-1), 1) // 홀수 
+}
+
 function solution(s) {
   let answer = "";
 

@@ -4,6 +4,19 @@
   https://programmers.co.kr/learn/courses/30/lessons/42748
 
 */
+
+// 201121 내가 푼 답
+function solution(array, commands) {
+    let answer = [];
+    
+    // for문 돌면서 처리 후 answer에 push 하기
+    for (let i of commands) {
+        // 첫번째 자릿수가 0이 아니라 1로 생각해줘야한다.
+        answer.push(array.slice(i[0]-1, i[1]).sort((a, b) => a - b)[i[2]-1]);
+    }
+    return answer;
+}
+
 /* 최종 답안  */
 function solution(array, commands) {
   var answer = [];

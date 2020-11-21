@@ -14,6 +14,36 @@
   result = 'TUE'
 */
 
+// 201121 최종답안
+function solution(a, b) {
+    // 필요한 값을 배열에 넣어준다.
+   	const week = ["FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"];
+    const date = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let day = 0;
+   
+    // 월 날짜 더하기 
+    for (let i = 0; i < a - 1; i++) {
+       day += date[i]; 
+    }
+    // 일 날짜 더하기 (배열 0으로 시작해서 1을 빼준다.)
+    day += b - 1
+   	return week[day % 7] 
+}
+
+// 201121 case 한개 실패 
+function solution(a, b) {
+    // 필요한 값을 배열에 넣어준다.
+   	const week = ["FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"];
+    const date = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let day = b;
+   
+    // 날짜 수를 구해준다. 
+    for (let i = 0; i < a - 1; i++) {
+       day += date[i]; 
+    }
+   	return week[day % 7 - 1] 
+}
+
 function solution(a, b) {
   if (a >= 1 && a <= 12 && b >= 1 && b <= 31) {
     const week = ["FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"];

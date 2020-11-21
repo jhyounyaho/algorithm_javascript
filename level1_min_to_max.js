@@ -14,6 +14,32 @@
   a = 5, b = 3, return = 12 
 */
 
+// 201121 풀이
+function solution(a, b) {
+  let answer = 0; // 초깃값
+
+  // Math객체를 사용하여 최댓값, 최솟값 구해줌 
+  const minNum = Math.min(a, b); // 최솟값
+  const maxNum = Math.max(a, b); // 최댓값
+  
+  for (let i = minNum; i <= maxNum; i++) {
+      answer += i;
+  }
+  return answer;
+}
+
+// 윗 풀이를 더 짧게 하면 변수선언 대신 직접 대입  
+function solution(a, b) {
+  let answer = 0; // 초깃값
+
+  for (let i = Math.min(a, b); i <= Math.max(a, b); i++) {
+      answer += i;
+  }
+
+  return answer;
+}
+
+
 function solution(a, b) {
   let answer = 0;
 
@@ -24,7 +50,6 @@ function solution(a, b) {
   for (let i = min; i <= max; i++) {
     answer += i;
   }
-  console.log(answer);
   return answer;
 }
 

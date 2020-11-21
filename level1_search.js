@@ -24,6 +24,33 @@
   return = [1,2,3]
 */
 
+// 201121 내가 푼 풀이
+function solution(answers) {
+  let answer = [];
+  // 수포자들 패턴
+  const su1 = [1, 2, 3, 4, 5];
+  const su2 = [2, 1, 2, 3, 2, 4, 2, 5]
+  const su3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+  // 정답 카운트
+  let result = [0, 0, 0]
+  
+  // for문 돌면서 답 맞는지 체크 
+  for (let i in answers) {
+    if (answers[i] === su1[i % su1.length]) result[0] += 1
+    if (answers[i] === su2[i % su2.length]) result[1] += 1
+    if (answers[i] === su3[i % su3.length]) result[2] += 1
+  }
+  
+  // 최댓값 
+  const maxNum = Math.max.apply(null, result);
+  // for문 돌면서 최댓값 학생 체크 
+  for (let j in result) {
+    if (result[j] >= maxNum) answer.push(parseInt(j,10) +1)     
+  } 
+  // 결과값 리턴
+  return answer;
+}
+
 function solution(answers) {
   if (answers.length <= 10000) {
     var answer = [];

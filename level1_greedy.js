@@ -19,6 +19,61 @@
   reserve = [1, 3, 5]
   return = 5
 */
+// 201121 통과
+function solution(n, lost, reserve) {
+    let answer = 0;
+    let newArr = new Array(n).fill(1);
+     
+    // 시간초과 나던 부분 for문 하나에 lost, reserve 같이 처리함
+    for (let i = 0; i < newArr.length; i++) {
+        if (lost.includes(i+1)) newArr[i] -= 1;
+        if (reserve.includes(i+1)) newArr[i] += 1;
+    }
+    
+    for (let k = 0; k < newArr.length-1; k++) {
+        if (newArr[k] === 0 && newArr[k+1] === 2) {
+           newArr[k] += 1;
+           newArr[k+1] -= 1;
+        } else if (newArr[k] === 2 && newArr[k+1] === 0) {
+           newArr[k] -= 1;
+           newArr[k+1] += 1;
+        }
+    }
+    for (let v of newArr) {
+        if (v !== 0) answer++;
+    }
+    return answer;
+}
+
+// 201121 시간초과 
+function solution(n, lost, reserve) {
+    let answer = 0;
+    let newArr = new Array(n).fill(1);
+   	
+    for (let i = 0; i < newArr.length; i++) {
+        if (lost.includes(i+1)) newArr[i] -= 1;
+    }
+    for (let i of lost) {
+        newArr[i-1] = 0;
+    }
+   	for (let j of reserve) {
+        newArr[j-1] = 2;
+    }
+    for (let k=0; k < newArr.length-1; k++) {
+        if (newArr[k] === 0 && newArr[k+1] === 2) {
+           newArr[k] = 1;
+           newArr[k+1] = 1;
+        } else if (newArr[k] === 2 && newArr[k+1] === 0) {
+           newArr[k] = 1;
+           newArr[k+1] = 1;
+        }
+    }
+    for (let v of newArr) {
+        if (v !== 0) answer+=1;
+    }
+    return answer;
+}
+
 // n 전체학생수, lost 도난당함, reserve 여유분
 // 0, 1, 2 로 체육복 체크
 function solution(n, lost, reserve) {

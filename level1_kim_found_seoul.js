@@ -11,6 +11,16 @@
   seoul = ["Jane", "Kim"]
   return = "김서방은 1에 있다"
 */
+
+// 201121 indexOf 를 사용하여 index값을 알아내자
+function solution(seoul) {
+  return `김서방은 ${seoul.indexOf('Kim')}에 있다`
+}
+
+
+// 실행을 위한 테스트코드입니다.
+console.log( findKim(["Queen", "Tod", "Kim"]));
+
 function solution(seoul) {
   for (let i in seoul) {
     if (seoul[i] === "Kim") {

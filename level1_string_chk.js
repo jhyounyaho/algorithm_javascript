@@ -20,25 +20,34 @@
   answer = false
   'p'의 개수 1개, 'y'의 개수 2개로 다르므로 false를 return 합니다.
 */
+
+// 201121 filter를 사용한 풀이
+function solution(s){
+    const string = s.toLowerCase().split('');
+    // p 체크값 
+    const pChk = string.filter((string) => string === 'p');
+    // y 체크값 
+    const yChk = string.filter((string) => string === 'y');
+    
+    // answer true / false 체크 
+    return pChk.length !== yChk.length ? false : true 
+}
+
+// 201121 filter를 사용한 풀이 더 짧게
+function solution(s){
+    const string = s.toLowerCase().split('');
+    return string.filter((string) => string === 'p').length == string.filter((string) => string === 'y').length;
+}
+
+// 다른 사람 풀이 match 사용 
 function solution(s) {
-  const p_chk = s.match(/p/gi);
-  const p = p_chk !== null ? p_chk.length : 0;
+  return s.match(/p/ig).length == s.match(/y/ig).length
+}
 
-  const y_chk = s.match(/y/gi);
-  const y = y_chk !== null ? y_chk.length : 0;
-
-  return p === y ? true : false;
+// 다른 사람 풀이 split 사용 
+function numPY(s) {
+  return s.toUpperCase().split("P").length === s.toUpperCase().split("Y").length
 }
 
 console.log(solution("pPoooyY")); //true
 console.log(solution("Pyy")); //false
-
-/*
-  다른풀이
-*/
-function numPY(s) {
-  //함수를 완성하세요
-  return (
-    s.toUpperCase().split("P").length === s.toUpperCase().split("Y").length
-  );
-}

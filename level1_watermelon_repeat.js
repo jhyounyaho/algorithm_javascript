@@ -11,6 +11,13 @@
   n =  
   return = 수박수박
 */
+
+// 201121 slice 대신 substring 사용
+function solution(n) {
+  const water_melon = "수박";
+  return water_melon.repeat(n).substring(0, n);
+}
+
 function solution(n) {
   const water_melon = "수박";
   return water_melon.repeat(n).slice(0, n);

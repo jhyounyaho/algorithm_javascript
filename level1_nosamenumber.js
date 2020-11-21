@@ -16,6 +16,29 @@
   arr = [1,1,3,3,0,1,1]
   answer = [1,3,0,1]
 */
+
+// 201121 내가 푼 풀이 
+function solution(arr) {
+    let answer = [];
+    for (let i = 0; i < arr.length; i++) {
+      // 앞 뒤로 비교해서 다를 경우에만 넣어줌
+      if (arr[i] !== arr[i+1]) {
+        answer.push(arr[i]) 
+      }
+    }
+    return answer;
+}
+
+// 다른풀이 filter를 사용해줌 
+function solution(arr) {
+  // 현재값과 다음값이 다를 경우에만 리턴함
+  return arr.filter((val, index) => val != arr[index + 1]);
+}
+
+// 나는 주로 for문을 돌려서 계산. 
+// reduce, map, filter공부를 더해야겠다 
+
+
 function solution(arr) {
   let result = [];
 
@@ -51,10 +74,3 @@ function solution(arr) {
   return answer;
 }
 
-/*
-  다른풀이2 
-*/
-function solution(arr) {
-  // 현재값과 다음값이 다를 경우에만 리턴함
-  return arr.filter((val, index) => val != arr[index + 1]);
-}

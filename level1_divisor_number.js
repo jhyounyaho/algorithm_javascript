@@ -30,6 +30,22 @@
   3, 2, 6은 10으로 나누어 떨어지지 않습니다. 나누어 떨어지는 원소가 없으므로 [-1]을 리턴합니다.
 */
 
+// 201121 filter 를 사용한 풀이 
+function solution(arr, divisor) {
+  // filter()를 사용하여 조건에 맞는 요소 반환 
+  let answer = arr.filter((value) => value % divisor === 0); 
+  return answer.length > 0 ? answer.sort((a,b) => a - b) : [-1];
+}
+
+// 201121 map 를 사용한 풀이 
+function solution(arr, divisor) {
+    let answer = [];
+    // map()을 사용하여 조건에 맞는 요소 return  
+    arr.map((value) => value % divisor === 0 && answer.push(value)); 
+  	return answer.length > 0 ? answer.sort((a,b) => a - b) : [-1];
+}
+
+// for in 을 사용한 풀이 
 function solution(arr, divisor) {
   let result = [];
 
@@ -40,7 +56,6 @@ function solution(arr, divisor) {
   }
 
   result.length === 0 ? result.push(-1) : result.sort((a, b) => a - b);
-  console.log(result);
   return result;
 }
 
