@@ -22,6 +22,36 @@
   따라서 TrY HeLlO WoRlD 를 리턴합니다.
 */
 
+// 201123 map과 for in 을 사용한 풀이 
+function solution(s) {
+  // 공백을 기준으로 나눈 뒤 map 으로 배열을 돌면서 체크한다.
+  return s.split(' ').map((word) => {
+    // 변경된 값을 넣어줄 result 
+    let result = ''; 
+      // 단어의 순서별로 체크
+      for (let i in word) {
+        // 가공된 값을 result 에 넣어줌
+        result += i % 2 === 0 
+        ? word[i].toUpperCase() // 짝수는 대문자
+        : word[i].toLowerCase() // 홀수는 소문자
+      } 
+      // 가공된 값을 리턴해준다.
+      return result 
+  }).join(' ');
+}
+
+// 201123 map 두번써서 사용한 풀이
+function solution(s) {
+  // 공백을 기준으로 나눈 뒤 map 으로 배열을 돌면서 체크한다.
+  return s.split(' ').map((word) => {
+    // ''을 기준으로 나눈 뒤 map 으로 단어를 돌면서 체크한다.
+    return word.split('').map((v, i) => {
+      // 가공된 값을 리턴해준다.
+      return i % 2 === 0 ? v.toUpperCase() : v.toLowerCase();
+    }).join('')
+  }).join(' ');
+}
+
 function solution(s) {
   return s
     .split(" ")

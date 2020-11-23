@@ -14,6 +14,12 @@
   n = 3     return = -1 
 */
 
+// 201123 풀이  
+function solution(n) {
+  const sqrtNum = Math.sqrt(n)
+  return Number.isInteger(sqrtNum) ? Math.pow(sqrtNum+1, 2) : -1
+}
+
 function solution(n) {
   let chk_num = Math.sqrt(n);
 

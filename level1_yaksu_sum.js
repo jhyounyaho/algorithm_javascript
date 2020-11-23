@@ -17,6 +17,16 @@
   입출력 예 #2
   5의 약수는 1, 5입니다. 이를 모두 더하면 6입니다.
 */
+
+// 201123 내가 푼 풀이 
+function solution(n) {
+    var answer = 0;
+    for(let i = 1; i <= n; i++) {
+        if (n % i === 0) answer += i
+    }
+    return answer;
+}
+
 function solution(n) {
   let result = 0;
   for (let i = 1; i <= n; i++) {

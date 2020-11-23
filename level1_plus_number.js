@@ -13,6 +13,31 @@
   answer = 6 
   1 + 2 + 3 = 6이므로 6를 return 하면 됩니다
 */
+
+// 201123 for of 를 사용한 풀이
+function solution(n) {
+    let answer = 0;
+    for (let i of String(n)) {
+      answer += parseInt(i)
+    }
+    return answer;
+}
+
+// 201123 reduce를 사용한 풀이
+function solution(n) {
+  return String(n).split('').reduce((result, value) => {
+    return result += parseInt(value, 10)        
+  }, 0)
+}
+
+// 201123 map을 사용한 풀이
+function solution(n) {
+  let answer = 0;
+  String(n).split('').map((num) => answer += parseInt(num))
+  return answer 
+}
+
+
 function solution(n) {
   let sum = 0;
 

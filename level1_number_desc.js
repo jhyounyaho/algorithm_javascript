@@ -11,6 +11,13 @@
   n = 118372
   return = 873211
  */
+
+// 201123 풀이
+function solution(n) {
+    // 배열로 만들어주고 sort로 내림차순 만들어서 문자열로 만들어준다.
+    return parseInt(String(n).split('').sort((a, b) => b - a).join(''), 10)
+}
+
 function solution(n) {
   // return Number([...(n + "")].sort().reserve().join(""));
   return Number([...(n + "")].sort((a, b) => b - a).join(""));

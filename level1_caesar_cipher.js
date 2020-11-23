@@ -17,6 +17,30 @@
   n = 1 
   result = BC
 */
+
+// 201123 못풀음 
+function solution(s, n) {
+  var answer = '';
+  /*
+    아스키코드 
+      AZ 65~90 // 26개 
+      az 97~122 
+  */
+  for (let i in s) {
+    if (s[i] == ' ') {
+      answer += ' ';
+    } else {
+      answer += String.fromCharCode(
+        s.charCodeAt(i) > 90 
+        // 이부분을 생각해내지 못함.. 
+        ? ((s.charCodeAt(i) + n - 97) % 26) + 97 // 소문자
+        : ((s.charCodeAt(i) + n - 65) % 26) + 65 // 대문자 
+      )
+    }
+  }
+  return answer;
+}
+
 function solution(s, n) {
   let result = "";
 

@@ -14,7 +14,12 @@
   027778888	
 */
 
-// 내풀이 
+// 201123 풀이 substr 로 글자 자르기 
+function solution(phone_number) {
+    return '*'.repeat(phone_number.length - 4) + phone_number.substr(-4, 4)
+}
+
+// 내풀이 slice로 글자 자르기  
 function solution(phone_number) {
   /*
     전체길이 - 4 만큼 * 로 채우고
