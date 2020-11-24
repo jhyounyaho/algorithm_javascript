@@ -19,6 +19,15 @@
   *****
 */
 
+// 201124 풀이
+process.stdin.setEncoding('utf8');
+process.stdin.on('data', data => {
+    const n = data.split(" ");
+    const a = Number(n[0]), b = Number(n[1]);
+    for (let i = 0; i < b; i++) {
+        console.log('*'.repeat(a));
+    }
+});
 
 process.stdin.setEncoding('utf8');
 process.stdin.on('data', data => {
@@ -26,7 +35,7 @@ process.stdin.on('data', data => {
     const a = Number(n[0]), b = Number(n[1]);
 
     // a 별갯수, b 반복횟수
-    for(var l=0; l<b; l++) {
+    for (var l=0; l<b; l++) {
       console.log('*'.repeat(a));
     }
 

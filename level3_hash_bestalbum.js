@@ -37,6 +37,32 @@
   classic 장르의 [3, 0]번 노래를 그다음에 수록합니다.
 */
 
+// 201124 풀이
+// 주어진 문제를 내가 필요한 형태의 배열로 만드는게 중요하다. 
+function solution(genres, plays) {
+    let list = genres.reduce((hash, v, i) => {
+    	if (!hash[v]) {
+        	hash[v] = { play: plays[i], music: []} 
+        } else {
+            hash[v].play += plays[i]
+        } 
+       	hash[v].music.push([i, plays[i]]) 
+        return hash;
+    }, {})
+    
+    let answer = [];
+    let sortArr = Object.values(list).sort((a, b) => b.play - a.play)
+    sortArr.map((m) => {
+        m.music.sort((a,b) => b[1] - a[1])
+        if (m.music.length >= 2) {
+            answer.push(m.music[0][0], m.music[1][0])
+        } else {
+            answer.push(m.music[0][0])
+        }
+    })
+    return answer;
+}
+
 function solution(genres, plays) {
   /*
     list 배열 형태 

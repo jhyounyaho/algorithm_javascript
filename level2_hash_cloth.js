@@ -44,6 +44,24 @@
   3. smoky_makeup
 */
 
+// 201124 내가 푼 풀이
+function solution(clothes) {
+    let answer = 1;
+    let clothesObj = {};
+    // {'headgear': {'yellow_hat', 'headgear'}, 'eyewear': {'blue_sunglasses'}} 형태로 만들어준다.
+   	clothes.map((item) => {
+      // 중복되는 키 값이 존재할 때 +1, key가 없을 경우 1
+      clothesObj[item[1]] = clothesObj[item[1]] !== undefined ? clothesObj[item[1]] += 1 : 1
+    }) 
+    
+    for (let i in clothesObj) {
+      // + 1 아무것도 안입었을 경우 ex) 버킷햇, 캡모자, !모자
+      answer *= (clothesObj[i] + 1)
+    }
+    // 아무것도 착용하지 않았을 경우 -1 
+    return answer -1;
+}
+
 function solution(clothes) {
   let answer = 1;
   let obj = {};

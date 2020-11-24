@@ -15,6 +15,15 @@
   numbers = [6, 10, 2]
   return = '6210'
 */
+
+// 201124 풀이
+function solution(numbers) {
+  // 앞뒤수 수를 비교하여 정렬 ex) 3, 10 => 103 - 310   
+  let answer = numbers.sort((a, b) => `${b}${a}` - `${a}${b}`).join('');
+  return answer[0] === '0' ? '0' : answer;
+}
+
+// repeat으로 풀이의 단점 : 4자릿수 이상일 경우엔? 
 function solution(numbers) {
   if (numbers.reduce((a, b) => a + b) === 0) {
     return "0";

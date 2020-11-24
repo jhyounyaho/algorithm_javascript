@@ -50,6 +50,32 @@
   모든 노드를 한번씩 방문 
 */
 
+// 201124 어렵다! 
+function solution(numbers, target) {
+    let answer = 0;
+    dfs(0, 0);
+   
+    // dfs 깊이우선탐색 후입선출(LIFO) - 재귀함수로 풀 수 있다.
+    function dfs(index, sum) {
+      // 재귀함수 탈출 조건 : 마지막 자식 노드까지 갔을때의 합
+      if (index === numbers.length) { 
+        if (sum === target) {
+          answer++;
+        }
+        // return 으로 빠져나온다.
+        return 
+      }
+
+      // 여기가 어렵다!!!
+      // 왼쪽 자식 node +1 인 경우를 모두 탐색한뒤  
+      dfs(index+1, sum + numbers[index]);
+      // 오른쪽 자식 node -1 인 경우를 탐색한다. 
+      dfs(index+1, sum - numbers[index]);
+    }
+
+    return answer;
+}
+
 function solution(numbers, target) {
   let answer = 0;
 
