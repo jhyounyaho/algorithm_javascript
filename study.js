@@ -308,3 +308,25 @@ function solution(n) {
 */
 temp = [1, 1, 2, 3, 4, 4, 5]
 const answer = [...new Set(temp)] // [1, 2, 3, 4, 5]
+
+/*
+  array item add / remove 
+  pop(): Remove an item from the end of an array.
+  push(): Add items to the end of an array.
+  shift(): Remove an item from the beginning of an array.
+  unshift(): Add items to the beginning of an array.
+  => stack, queue 를 구할때 유용함 
+
+  queue FIFO 선입선출  
+  - unshift() 선입  
+  - shift() 선출  
+
+  stack LIFO 후입선출   
+  - push() 후입   
+  - shift() 선출  
+*/
+const arr = [1, 2, 3];
+arr.push('push'); // [1, 2, 3, 'push']
+arr.pop() // [1, 2, 3]
+arr.unshift('unshift') // ['unshift', 1, 2, 3]
+arr.shift() // [1, 2, 3]
