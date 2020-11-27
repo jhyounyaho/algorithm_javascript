@@ -63,3 +63,24 @@ function solution(n) {
 	return primeArr.filter(e => e).length; 
     
 }
+
+// 
+// 에라토스테네스의 체 
+// n int 소수를 구하려는 대상  
+// returnArr arr n의 소수 배열 
+function makePrimeNum(n) {
+    let primeArr = new Array(n+1).fill(true).fill(false, 0, 2);
+    let returnArr = [];
+    for (let i=2; i * i <= n; i++) {
+       for (let j=i*i; j <= n; j+=i) {
+           primeArr[j] = false;
+       }
+    }
+    
+    for (let i in primeArr) {
+       if (primeArr[i] === true) {
+           returnArr.push(Number(i))
+       } 
+    }
+    return returnArr;
+}
