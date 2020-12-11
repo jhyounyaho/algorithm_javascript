@@ -33,7 +33,7 @@
 /*
   201210 풀이 - 실패  
   요구하는 배열은 만들었으나 
-  해당 location 의 숫자를 어떻게 기억하고 찾아낼 것인가
+  해당 location 의 숫자를 어떻게 기억하고 찾아낼 것인가를 고려하지 못했다
 */
 function solution(priorities, location) {
   let answer = 0;
@@ -48,4 +48,37 @@ function solution(priorities, location) {
   
   // location의 위치를 찾는다. <- Error  
   return newPriorities[location];
+}
+
+/*
+  201211 다른분의 풀이 참고
+  스택/큐로 생각하여 shift, push 를 사용했다
+*/
+function solution(priorities, location) {
+  // 기존 위치를 기억한다. 
+  let targetIndex = location; 
+  let answer = 0;
+  
+  while (priorities.length > 0) {
+    // 비교할 첫번째 index 
+    let first = priorities.shift();
+    // some()를 이용해서 현재값과 first의 값을 비교해준다.
+    if (priorities.some((value, index) => value > first)) {
+      // first < 현재값 first를 뒤에 추가해준다.
+      priorities.push(first);
+    } else {
+      // first > 현재값 중요한 문서가 첫번째로 온 형태다! 
+      answer += 1;
+      if (targetIndex === 0) {
+        break;
+      }
+    }
+
+    if (targetIndex === 0) {
+      targetIndex = priorities.length - 1; 
+    } else {
+      targetIndex -= 1;
+    }
+  }
+  return answer;
 }
