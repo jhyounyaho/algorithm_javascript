@@ -1,7 +1,7 @@
 // fill() : student 라는 n개원소를 가진 배열에 1로 채워라
 // student = [1, 1, 1, 1]
 let student = new Array(n).fill(1);
-
+  
 // ES6 for ..in : 반복문 객체 순환
 // i = 0, 1, 2, 3
 for (let i in student) {
