@@ -206,3 +206,24 @@ function solution(answers) {
 
   return answer;
 }
+
+// 201221 풀이
+function solution(answers) {
+    let answer = [];
+    const supo1 = [1, 2, 3, 4, 5];
+    const supo2 = [2, 1, 2, 3, 2, 4, 2, 5];
+    const supo3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+    let result = new Array(3).fill(0);
+    
+    for(let i in answers) {
+        if (answers[i] === supo1[i % supo1.length]) result[0]+= 1; 
+        if (answers[i] === supo2[i % supo2.length]) result[1]+= 1; 
+        if (answers[i] === supo3[i % supo3.length]) result[2]+= 1; 
+    }
+    const maxNum = Math.max.apply(null, result)
+    
+    for(let i in result) {
+        if (maxNum === result[i]) answer.push(Number(i) + 1);
+    }
+    return answer;
+}

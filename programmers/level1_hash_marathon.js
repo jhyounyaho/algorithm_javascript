@@ -60,3 +60,30 @@ function solution(participant, completion) {
     }
   });
 }
+
+/*
+  201221 풀이
+  hash를 사용한 부분은 동일하나 
+  미완주자가 n명일 경우를 로직으로 구현 
+*/
+function solution(participant, completion) {
+  // 미완주자 arr
+  let noCompletion = [];
+  
+  // 완주자 hash 변환 {name: count} 형태  
+  const completeHash = completion.reduce((pre, val) => {
+    pre[val] = pre[val] ? pre[val] + 1 : 1;
+      return pre;
+  }, {})
+  
+  // 미완주자가 n명 일 경우를 고려한 코드 
+  participant.find((val) => {
+      if (completeHash[val]) {
+          completeHash[val] -= 1;
+      } else {
+          noCompletion.push(val)
+      }
+  })
+  
+  return noCompletion.join('');
+}
