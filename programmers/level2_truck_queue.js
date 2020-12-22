@@ -117,3 +117,34 @@ function solution(bridge_length, weight, truck_weights) {
   return answer;
 }
 
+// 201222 큐로 푸는 다리 문제 
+function solution(bridge_length, weight, truck_weights) {
+    // 소요시간 
+    let answer = 0;
+    // queue FIFO
+    let bridge = new Array(bridge_length).fill(0);
+    // 현재 트럭 FIFO
+    let now_truck = truck_weights.shift();
+    // 다리 위 무게 
+    let now_weight = 0;
+    
+    bridge.unshift(now_truck);
+    bridge.pop();
+    now_weight += now_truck;
+    answer++;
+    
+    while(now_weight > 0) {
+        now_weight -= bridge.pop();
+        now_truck = truck_weights.shift();
+        
+        if (now_weight + now_truck <= weight) {
+            bridge.unshift(now_truck);
+            now_weight += now_truck;
+        } else {
+            truck_weights.unshift(now_truck);
+            bridge.unshift(0);
+        }
+        answer++;
+    }
+    return answer;
+}

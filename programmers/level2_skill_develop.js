@@ -124,3 +124,67 @@ function solution(progresses, speeds) {
 
     return answer;
 }
+
+/*
+    201222 실패한 코드
+    처음에 실패한 스타일대로 풀음 
+    완료일 기준으로 체크하려고 했음
+    스택 / 큐에 맞게 생각해보자
+*/
+function solution(progresses, speeds) {
+    let answer = [];
+   	let complete = []; 
+    
+    for (let i in progresses) {
+        let completionRate = progresses[i];
+        let chkDay = 0;
+    	while(completionRate < 100) {
+           completionRate += speeds[i] 
+           chkDay+=1; 
+        } 
+        complete.push(chkDay);
+    }
+    
+    let bepoDay = complete.shift();
+    let count = 1;  
+    while(complete.length > 0) {
+        let diffDay = complete.shift();
+        if (bepoDay >= diffDay) {
+            count++;
+        } else {
+            bepoDay = diffDay;
+            count = 1;
+        }
+        answer.push(count); 
+    }
+    
+    return answer;
+}
+
+/*
+    201222 참고한 풀이
+    => 큐 FIFO 특징 사용 shift()
+*/
+function solution(progresses, speeds) {
+    let answer = [];
+    
+    while(progresses.length > 0) {
+        for(let i in progresses) {
+        	if (progresses[i] < 100) {
+                progresses[i] += speeds[i]
+            }  
+        }
+        
+        let dev_days = 0;
+        while(progresses[0] >= 100) {
+            progresses.shift();
+            speeds.shift();
+            dev_days++;
+        }
+        
+        if (dev_days > 0) {
+        	answer.push(dev_days) 
+        }
+    }
+    return answer;
+}
