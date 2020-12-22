@@ -82,3 +82,5 @@ function solution(priorities, location) {
   }
   return answer;
 }
+
+// 201222 어렵다! some() 공부하기 

@@ -68,3 +68,17 @@ function solution(numbers) {
 
     return answer.sort((a, b) => a - b)
 }
+
+// 201220 동일하게 풀이 
+function solution(numbers) {
+    let answer = [];
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = i + 1; j < numbers.length; j++) {
+            let chk_num = numbers[i] + numbers[j];
+            if (!answer.includes(chk_num)) {
+        		answer.push(chk_num)    
+            }
+        }
+    }
+    return answer.sort((a, b) => a - b);
+}
